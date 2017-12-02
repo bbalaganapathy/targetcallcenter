@@ -10,8 +10,8 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE, ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Constraint(validatedBy = { IsJEGreaterThanSEAndMgrValidator.class })
-public @interface IsJEGreaterThanSEAndMgr {
+@Constraint(validatedBy = { RequestValidator.class })
+public @interface ValidateRequest {
     String message() default "";
 
     Class<?>[] groups() default {};

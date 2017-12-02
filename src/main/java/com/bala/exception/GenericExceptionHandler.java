@@ -1,5 +1,7 @@
 package com.bala.exception;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  */
 @ControllerAdvice
 public class GenericExceptionHandler {
+
+    @Autowired
+    private MessageSource messageSource;
 
        @ExceptionHandler(MethodArgumentNotValidException.class)
         public ResponseEntity<ErrorResponse> invalidInput(MethodArgumentNotValidException ex) {
@@ -33,5 +38,7 @@ public class GenericExceptionHandler {
         //  response.setErrors(ValidationUtils.fromBindingErrors(result));
         return new ResponseEntity<ErrorResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+
     }
 

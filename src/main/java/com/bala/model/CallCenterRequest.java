@@ -1,29 +1,39 @@
 package com.bala.model;
 
-import com.bala.validator.IsJEGreaterThanSEAndMgr;
+import com.bala.validator.ValidateRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import cz.jirutka.validator.collection.constraints.EachPattern;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by hp on 11/30/2017.
  */
-@IsJEGreaterThanSEAndMgr
+@ValidateRequest
 public class CallCenterRequest {
 
+    @Valid
+    @NotNull
     @JsonProperty("number_of_calls")
-    @NotNull(message ="Number of calls cannot be null")
     private Integer noOfCalls;
 
-    @NotNull
-    private String[] je  = new String[]{};
+    @NotNull(message = "{je.notnull.message}")
+    @Valid
+    @EachPattern(regexp="^[0-9]+(,[0-9]+)*$",message = "{je.pattern.message}")
+    private List<String> je  = new ArrayList<>();
 
-    @NotNull
-    private String[] se  = new String[]{};
+    @NotNull(message = "{se.notnull.message}")
+    @Valid
+    @EachPattern(regexp="^[0-9]+(,[0-9]+)*$",message ="{se.pattern.message}")
+    private List<String> se  = new ArrayList<>();
 
-    @NotNull
+    @NotNull(message = "{mgr.notnull.message}")
+    @Valid
+    @Pattern(regexp="^[0-9]+(,[0-9]+)*$",message="{mgr.pattern.message}")
     private String  mgr;
 
     public int getNoOfCalls() {
@@ -34,19 +44,19 @@ public class CallCenterRequest {
         this.noOfCalls = noOfCalls;
     }
 
-    public String[] getJe() {
+    public List<String> getJe() {
         return je;
     }
 
-    public void setJe(String[] je) {
+    public void setJe(List<String> je) {
         this.je = je;
     }
 
-    public String[] getSe() {
+    public List<String> getSe() {
         return se;
     }
 
-    public void setSe(String[] se) {
+    public void setSe(List<String> se) {
         this.se = se;
     }
 

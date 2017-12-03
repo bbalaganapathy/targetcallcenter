@@ -8,9 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-@SpringBootApplication(scanBasePackages={"com.bala"})// same as @Configuration @EnableAutoConfiguration @ComponentScan
+@SpringBootApplication(scanBasePackages={"com.bala"})
 public class CallCenterApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(CallCenterApplication.class, args);
     }

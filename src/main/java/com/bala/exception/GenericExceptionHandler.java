@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 /**
- * Created by hp on 11/30/2017.
+ * Created by hp on 12/3/2017
  */
 @ControllerAdvice
 public class GenericExceptionHandler {
@@ -25,7 +25,6 @@ public class GenericExceptionHandler {
            ErrorResponse response = new ErrorResponse();
             response.setErrorCode("Validation Error");
              response.setErrorMessage("Invalid inputs: "+result.getFieldError().getDefaultMessage());
-          //  response.setErrors(ValidationUtils.fromBindingErrors(result));
             return new ResponseEntity<ErrorResponse>(response, HttpStatus.BAD_REQUEST);
         }
 
@@ -35,7 +34,6 @@ public class GenericExceptionHandler {
         ErrorResponse response = new ErrorResponse();
         response.setErrorCode("Internal Server Error");
         response.setErrorMessage("Unexpected Error:  "+ex.getMessage());
-        //  response.setErrors(ValidationUtils.fromBindingErrors(result));
         return new ResponseEntity<ErrorResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 

@@ -9,7 +9,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
- * Created by hp on 11/30/2017.
+ * Created by hp on 12/3/2017.
  */
 
 
@@ -27,7 +27,7 @@ public class RequestValidator implements ConstraintValidator<ValidateRequest, Ca
 
     @Override
     public boolean isValid(CallCenterRequest value, ConstraintValidatorContext context) {
-        if (value == null) return true;
+        if (value == null) return false;
         if (value.getJe().size() < value.getSe().size()) {
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate("{je.greater.se.message}")

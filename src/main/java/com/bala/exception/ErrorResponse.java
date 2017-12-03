@@ -1,7 +1,7 @@
 package com.bala.exception;
 
 /**
- * Created by hp on 11/30/2017.
+ * Created by hp on 12/3/2017.
  */
 public class ErrorResponse {
 

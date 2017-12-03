@@ -1,7 +1,9 @@
 package com.bala.model;
 
+import java.util.List;
+
 /**
- * Created by hp on 12/2/2017.
+ * Created by hp on 12/3/2017
  */
 public class CallCenterResponse {
     Integer noOfCalls;
@@ -38,10 +40,6 @@ public class CallCenterResponse {
         return totalTimeTakeninMnts;
     }
 
-    public void setTotalTimeTakeninMnts(Long totalTimeTakeninMnts) {
-        this.totalTimeTakeninMnts = totalTimeTakeninMnts;
-    }
-
     public Performance getPerformance() {
         return performance;
     }
@@ -49,6 +47,11 @@ public class CallCenterResponse {
     public void setPerformance(Performance performance) {
         this.performance = performance;
     }
+
+    public void setTotalTimeTakeninMnts(Long totalTimeTakeninMnts) {
+        this.totalTimeTakeninMnts = totalTimeTakeninMnts;
+    }
+
 
     Performance performance;
 

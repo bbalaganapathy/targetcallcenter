@@ -4,22 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by hp on 12/2/2017.
+ * Created by hp on 12/3/2017.
  */
 public class Performance {
-    List<Executive> manager= new ArrayList<Executive>();
+    Executive manager= new Executive();
 
     List<Executive> juniorExecutives= new ArrayList<Executive>();
 
-    List<Executive> seniorExecutives= new ArrayList<Executive>();
-
-    public List<Executive> getManager() {
+    public Executive getManager() {
         return manager;
     }
 
-    public void setManager(List<Executive> manager) {
+    public void setManager(Executive manager) {
         this.manager = manager;
     }
+
+    List<Executive> seniorExecutives= new ArrayList<Executive>();
+
 
     public List<Executive> getJuniorExecutives() {
         return juniorExecutives;
@@ -35,5 +36,12 @@ public class Performance {
 
     public void setSeniorExecutives(List<Executive> seniorExecutives) {
         this.seniorExecutives = seniorExecutives;
+    }
+
+    public void addJuniorExecutive(Executive executive){
+        this.juniorExecutives.add(executive);
+    }
+    public void addSeniorExecutive(Executive executive){
+        this.seniorExecutives.add(executive);
     }
 }

@@ -7,6 +7,16 @@ public class ErrorResponse {
 
     private String errorCode;
 
+    private String fieldName;
+
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
     public String getErrorCode() {
         return errorCode;
     }

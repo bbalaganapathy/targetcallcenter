@@ -24,7 +24,8 @@ public class GenericExceptionHandler {
             BindingResult result = ex.getBindingResult();
            ErrorResponse response = new ErrorResponse();
             response.setErrorCode("Validation Error");
-             response.setErrorMessage("Invalid inputs: "+result.getFieldError().getDefaultMessage());
+           response.setFieldName(result.getFieldError().getField());
+             response.setErrorMessage("Invalid inputs:"+result.getFieldError().getDefaultMessage());
             return new ResponseEntity<ErrorResponse>(response, HttpStatus.BAD_REQUEST);
         }
 

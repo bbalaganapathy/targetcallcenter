@@ -27,7 +27,7 @@ public class CallCenterResource {
     CallCenterService service;
 
     @RequestMapping(value = "/performance/", method = RequestMethod.POST)
-    public CallCenterResponse calculatePerformance(@ValidateRequest @Valid  @RequestBody CallCenterRequest userVO) {
+    public CallCenterResponse calculatePerformance( @Valid @ValidateRequest  @RequestBody CallCenterRequest userVO) {
         return service.calculatePerformance(userVO);
     }
 }

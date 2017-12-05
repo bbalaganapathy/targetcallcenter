@@ -2,9 +2,12 @@ package com.bala.model;
 
 import com.bala.validator.ValidateRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import cz.jirutka.validator.collection.constraints.EachMin;
 import cz.jirutka.validator.collection.constraints.EachPattern;
+import cz.jirutka.validator.collection.constraints.EachRange;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
@@ -19,22 +22,21 @@ public class CallCenterRequest {
     @Valid
     @NotNull
     @JsonProperty("number_of_calls")
+    @Min(0)
     private Integer noOfCalls;
 
     @NotNull(message = "{je.notnull.message}")
     @Valid
-    @EachPattern(regexp="^[0-9]+(,[0-9]+)*$",message = "{je.pattern.message}")
-    private List<String> je  = new ArrayList<>();
+    private List<List<Integer>> je  = new ArrayList<>();
 
     @NotNull(message = "{se.notnull.message}")
     @Valid
-    @EachPattern(regexp="^[0-9]+(,[0-9]+)*$",message ="{se.pattern.message}")
-    private List<String> se  = new ArrayList<>();
+    private List<List<Integer>> se  = new ArrayList<>();
 
-    @NotNull(message = "{mgr.notnull.message}")
     @Valid
-    @Pattern(regexp="^[0-9]+(,[0-9]+)*$",message="{mgr.pattern.message}")
-    private String  mgr;
+    @NotNull(message = "{mgr.notnull.message}")
+    @EachMin(0)
+    private List<Integer>  mgr;
 
     public int getNoOfCalls() {
         return noOfCalls;
@@ -44,27 +46,27 @@ public class CallCenterRequest {
         this.noOfCalls = noOfCalls;
     }
 
-    public List<String> getJe() {
+    public List<List<Integer>> getJe() {
         return je;
     }
 
-    public void setJe(List<String> je) {
+    public void setJe(List<List<Integer>> je) {
         this.je = je;
     }
 
-    public List<String> getSe() {
+    public List<List<Integer>> getSe() {
         return se;
     }
 
-    public void setSe(List<String> se) {
+    public void setSe(List<List<Integer>> se) {
         this.se = se;
     }
 
-    public String getMgr() {
+    public List<Integer> getMgr() {
         return mgr;
     }
 
-    public void setMgr(String mgr) {
+    public void setMgr(List<Integer> mgr) {
         this.mgr = mgr;
     }
 }

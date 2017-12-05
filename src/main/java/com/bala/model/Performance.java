@@ -7,7 +7,7 @@ import java.util.List;
  * Created by hp on 12/3/2017.
  */
 public class Performance {
-    Executive manager= new Executive();
+    Executive manager;
 
     List<Executive> juniorExecutives= new ArrayList<Executive>();
 

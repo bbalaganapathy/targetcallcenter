@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import javax.validation.Valid;
 
@@ -30,4 +32,13 @@ public class CallCenterResource {
     public CallCenterResponse calculatePerformance( @Valid @ValidateRequest  @RequestBody CallCenterRequest userVO) {
         return service.calculatePerformance(userVO);
     }
+  
+  @RequestMapping(value = "/mds", method = RequestMethod.GET)
+  @ResponseBody
+  public String mds(@RequestBody  String raw, HttpServletRequest request, HttpServletResponse response) throws InterruptedException {
+	 // Thread.sleep(1000000);
+     System.out.println(" Called post " +raw);
+   // response.setStatus(500);
+     return "Bala";
+  }
 }

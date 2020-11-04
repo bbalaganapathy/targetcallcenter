@@ -37,7 +37,7 @@ public class CallCenterResource {
   @RequestMapping(value = "/mds", method = RequestMethod.GET)
   @ResponseBody
   public String mds(HttpServletRequest request, HttpServletResponse response) throws InterruptedException {
-	 // Thread.sleep(1000000);
+	 Thread.sleep(1000000);
      System.out.println(" Called post ");
    // response.setStatus(500);
      return "Bala";
